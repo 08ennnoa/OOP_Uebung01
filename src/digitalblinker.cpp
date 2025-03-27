@@ -22,10 +22,6 @@ led3 = _led3;
 inv3 = _inv3;
 enable = _enable;
 
-pinMode(led1, OUTPUT);
-pinMode(led2, OUTPUT);
-pinMode(led3, OUTPUT);
-
 digitalWrite(led1, inv1 ? HIGH : LOW);
 digitalWrite(led2, inv2 ? HIGH : LOW);
 digitalWrite(led3, inv3 ? HIGH : LOW);
