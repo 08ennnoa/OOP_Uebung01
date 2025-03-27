@@ -1,19 +1,13 @@
-#ifndef DIGITALBLINKER_H
-#define DIGITALBLINKER_H
-
 #include <Arduino.h>
 
-class blinken
+class blinker
 {
-    private:
-    unsigned long last = 0;
-    bool state = false, inv1, inv2, inv3, enable;
-    unsigned long blinktime;
-    uint8_t led1, led2, led3;
+    uint8_t pin1, pin2;
+    uint16_t blinktime;
+    bool enable, state;
+    unsigned long last;
 
-    // Blinkzeit[ms], LED1[PinNr], Invertiert1[T/F], LED2[PinNr], Invertiert2[T/F], Enable[T/F]
-    void init(unsigned long, uint8_t, bool, uint8_t, bool, bool);
+public:
+    void init(unsigned long, bool, uint8_t, uint8_t);
     void poll();
-    void off();
 };
-#endif
