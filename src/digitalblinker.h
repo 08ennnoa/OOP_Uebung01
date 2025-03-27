@@ -8,7 +8,7 @@ private:
     unsigned long last;
 
 public:
-    void init(unsigned long, bool, uint8_t, uint8_t);
     void poll();
     uint16_t blinktime;
+    blinker(unsigned long, bool, uint8_t, uint8_t);
 };

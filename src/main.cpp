@@ -63,7 +63,7 @@ void setup()
     pinMode(POT1, INPUT);
 
     // Initialisierung der Klassen
-    digitalblinker.init(BLINKTIME, true, LED1, LED2);
+    blinker(BLINKTIME, true, LED1, LED2);
     a_blinker.init(LED1, BLINKTIME, ANALOGBLINKER_POLLTIME, true);
 }
 
