@@ -23,12 +23,19 @@
 // ****************************************************************************
 
 #include <Arduino.h>
+#include "digitalblinker.h"
+#include "helper.h"
+#include "analogblinker.h"
 
 #define LED1 3    // Low-side switch (leuchtet mit LOW)
 #define LED2 5    // Low-side switch (leuchtet mit LOW)
 #define TASTER1 4 // LOW wenn gedrückt
 #define TASTER2 2 // LOW wenn gedrückt
 #define POT1 A7   
+#define BLINKTIME 500
+
+
+blinker digitalblinker;
 
 void setup()
 {
@@ -39,6 +46,7 @@ void setup()
     pinMode(TASTER1, INPUT_PULLUP);
     pinMode(TASTER2, INPUT_PULLUP);
     pinMode(POT1, INPUT);
+    digitalblinker.init(BLINKTIME, true, LED1, LED2);
 }
 
 void loop()
