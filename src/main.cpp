@@ -24,7 +24,6 @@
 #include "digitalblinker.h"
 #include "helper.h"
 #include "analogblinker.h"
-#include "button.h"
 
 #define LED1 3    // Low-side switch (leuchtet mit LOW)
 #define LED2 5    // Low-side switch (leuchtet mit LOW)
