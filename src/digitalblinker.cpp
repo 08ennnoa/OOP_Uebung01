@@ -1,4 +1,3 @@
-#include <Arduino.h>
 #include "digitalblinker.h"
 void blinker::init(unsigned long _blinktime, bool _enable, uint8_t _pin1, uint8_t _pin2)
 {
