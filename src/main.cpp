@@ -32,7 +32,7 @@
 
 void setup()
 {
-    Serial.begin(57600); 
+    Serial.begin(57800); 
     Serial.println("..Start..\n");
     pinMode(LED1, OUTPUT);
     pinMode(LED2, OUTPUT);
