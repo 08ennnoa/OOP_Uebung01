@@ -32,7 +32,7 @@
 
 void setup()
 {
-    Serial.begin(115200); // Baud rate
+    Serial.begin(57600); // Baud rate
     Serial.println("..Start..\n");
 }
 
