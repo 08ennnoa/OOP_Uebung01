@@ -34,6 +34,11 @@ void setup()
 {
     Serial.begin(57600); // Baud rate
     Serial.println("..Start..\n");
+    PinMode(LED1, OUTPUT);
+    PinMode(LED2, OUTPUT);
+    PinMode(TASTER1, INPUT_PULLUP);
+    PinMode(TASTER2, INPUT_PULLUP);
+    PinMode(POT1, INPUT);
 }
 
 void loop()
