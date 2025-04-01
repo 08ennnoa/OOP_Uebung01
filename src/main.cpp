@@ -25,22 +25,20 @@
 #include "helper.h"
 #include "analogblinker.h"
 
-// Definition der Pins und Konstanten
 #define LED1 3    // Low-side switch (leuchtet mit LOW)
 #define LED2 5    // Low-side switch (leuchtet mit LOW)
 #define TASTER1 4 // LOW wenn gedrückt
 #define TASTER2 2 // LOW wenn gedrückt
-#define POT1 A7   // Potentiometer-Pin
+#define POT1 A7   
 #define BLINKTIME 500
 
 #define DB_ZEIT 50
 #define LONGPRESSTIME 1000
 
-#define ANALOGBLINKER_POLLTIME 10 // ms
-#define ANALOGBLINKER_MIN 100     // ms
-#define ANALOGBLINKER_MAX 1000    // ms
+#define ANALOGBLINKER_POLLTIME 10 
+#define ANALOGBLINKER_MIN 100    
+#define ANALOGBLINKER_MAX 1000    
 
-// Instanzieren der Klassen
 blinker digitalblinker;
 analogblinker a_blinker;
 
@@ -55,21 +53,18 @@ void setup()
     Serial.begin(57600);
     Serial.println("..Start..\n");
 
-    // Pins initialisieren
     pinMode(LED1, OUTPUT);
     pinMode(LED2, OUTPUT);
     pinMode(TASTER1, INPUT_PULLUP);
     pinMode(TASTER2, INPUT_PULLUP);
     pinMode(POT1, INPUT);
 
-    // Initialisierung der Klassen
     blinker(BLINKTIME, true, LED1, LED2);
     a_blinker.init(LED1, BLINKTIME, ANALOGBLINKER_POLLTIME, true);
 }
 
 void loop()
 {
-    // Taster1 abfragen
     if (digitalRead(TASTER1) == LOW)
     {
         if (taster1PressedTime == 0)
@@ -78,7 +73,7 @@ void loop()
         }
         else if (millis() - taster1PressedTime > LONGPRESSTIME)
         {
-            isBlinkerEnabled = !isBlinkerEnabled; // Toggle Blinker ein/aus
+            isBlinkerEnabled = !isBlinkerEnabled; 
             taster1PressedTime = 0;
         }
     }
@@ -86,12 +81,11 @@ void loop()
     {
         if (taster1PressedTime > 0 && millis() - taster1PressedTime <= LONGPRESSTIME)
         {
-            isAnalogBlinkerActive = false; // Digitaler Blinker aktivieren
+            isAnalogBlinkerActive = false; 
         }
         taster1PressedTime = 0;
     }
 
-    // Taster2 abfragen
     if (digitalRead(TASTER2) == LOW)
     {
         if (taster2PressedTime == 0)
@@ -100,7 +94,7 @@ void loop()
         }
         else if (millis() - taster2PressedTime > LONGPRESSTIME)
         {
-            isBlinkerEnabled = !isBlinkerEnabled; // Toggle Blinker ein/aus
+            isBlinkerEnabled = !isBlinkerEnabled; 
             taster2PressedTime = 0;
         }
     }
@@ -108,17 +102,15 @@ void loop()
     {
         if (taster2PressedTime > 0 && millis() - taster2PressedTime <= LONGPRESSTIME)
         {
-            isAnalogBlinkerActive = true; // Analoger Blinker aktivieren
+            isAnalogBlinkerActive = true; 
         }
         taster2PressedTime = 0;
     }
 
-    // Blinker ausführen, wenn aktiviert
     if (isBlinkerEnabled)
     {
         if (isAnalogBlinkerActive)
         {
-            // Potentiometer-Wert lesen und Blinkgeschwindigkeit anpassen
             int potiValue = analogRead(POT1);
             int blinkSpeed = map(potiValue, 0, 1023, ANALOGBLINKER_MIN, ANALOGBLINKER_MAX);
             a_blinker.init(LED1, blinkSpeed, ANALOGBLINKER_POLLTIME, true);
@@ -131,7 +123,6 @@ void loop()
     }
     else
     {
-        // LEDs ausschalten, wenn Blinker deaktiviert ist
         digitalWrite(LED1, HIGH);
         digitalWrite(LED2, HIGH);
     }
