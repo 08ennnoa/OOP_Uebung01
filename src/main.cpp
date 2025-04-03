@@ -18,6 +18,10 @@
 // *                                                                          *
 // * -> Erstelle einen Pull-Request.                                          *
 // *                                                                          *
+//Ändere das letze Beispiel so, das es die zusätzlich Möglichkeit gibt        *
+//zwischen analogem und digitalem Blinken umzuschalten.                       *
+//Außerdem soll mit der Taste 's' die synchronisierung der Blinker            *
+//getoggelt werden können.                                                    *
 // ****************************************************************************
 
 #include <Arduino.h>
