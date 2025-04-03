@@ -29,15 +29,15 @@
 #define LED2 5    // Low-side switch (leuchtet mit LOW)
 #define TASTER1 4 // LOW wenn gedrückt
 #define TASTER2 2 // LOW wenn gedrückt
-#define POT1 A7   
+#define POT1 A7
 #define BLINKTIME 500
 
 #define DB_ZEIT 50
 #define LONGPRESSTIME 1000
 
-#define ANALOGBLINKER_POLLTIME 10 
-#define ANALOGBLINKER_MIN 100    
-#define ANALOGBLINKER_MAX 1000    
+#define ANALOGBLINKER_POLLTIME 10
+#define ANALOGBLINKER_MIN 100
+#define ANALOGBLINKER_MAX 1000
 
 blinker digitalblinker;
 analogblinker a_blinker;
@@ -73,7 +73,7 @@ void loop()
         }
         else if (millis() - taster1PressedTime > LONGPRESSTIME)
         {
-            isBlinkerEnabled = !isBlinkerEnabled; 
+            isBlinkerEnabled = !isBlinkerEnabled;
             taster1PressedTime = 0;
         }
     }
@@ -81,7 +81,7 @@ void loop()
     {
         if (taster1PressedTime > 0 && millis() - taster1PressedTime <= LONGPRESSTIME)
         {
-            isAnalogBlinkerActive = false; 
+            isAnalogBlinkerActive = false;
         }
         taster1PressedTime = 0;
     }
@@ -94,7 +94,7 @@ void loop()
         }
         else if (millis() - taster2PressedTime > LONGPRESSTIME)
         {
-            isBlinkerEnabled = !isBlinkerEnabled; 
+            isBlinkerEnabled = !isBlinkerEnabled;
             taster2PressedTime = 0;
         }
     }
@@ -102,7 +102,7 @@ void loop()
     {
         if (taster2PressedTime > 0 && millis() - taster2PressedTime <= LONGPRESSTIME)
         {
-            isAnalogBlinkerActive = true; 
+            isAnalogBlinkerActive = true;
         }
         taster2PressedTime = 0;
     }

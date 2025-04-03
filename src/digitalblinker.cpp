@@ -1,4 +1,5 @@
 #include "digitalblinker.h"
+
 blinker::blinker(unsigned long _blinktime, bool _enable, uint8_t _pin1, uint8_t _pin2)
 {
     blinktime = _blinktime;
